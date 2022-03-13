@@ -29,6 +29,7 @@ buildscript {
         rxjava_version = "2.2.17"
         rxandroid_version = "2.1.1"
         core_ktx_test_version = '1.4.0'
+        activity_version = '1.4.0'
     }
 
     repositories {
@@ -39,8 +40,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:7.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath("com.google.dagger:hilt-android-gradle-plugin:2.40.5")
     }
 }
 

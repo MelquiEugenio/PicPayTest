@@ -1,7 +1,7 @@
-package com.picpay.desafio.android.view
+package com.picpay.desafio.android.presenter.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.picpay.desafio.android.model.network.dto.User
+import com.picpay.desafio.android.data.network.dto.User
 
 class UserListDiffCallback(
     private val oldList: List<User>,

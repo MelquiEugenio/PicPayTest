@@ -1,4 +1,4 @@
-package com.picpay.desafio.android.view
+package com.picpay.desafio.android.presenter
 
 import android.view.View
 import android.widget.ProgressBar
@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.picpay.desafio.android.R
-import com.picpay.desafio.android.viewmodel.ContactsViewModel
+import com.picpay.desafio.android.presenter.adapter.UserListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 

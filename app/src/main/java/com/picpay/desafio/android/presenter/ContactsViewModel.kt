@@ -1,17 +1,18 @@
-package com.picpay.desafio.android.viewmodel
+package com.picpay.desafio.android.presenter
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.picpay.desafio.android.model.network.api.PicPayService
-import com.picpay.desafio.android.model.network.dto.User
+import com.picpay.desafio.android.data.network.api.PicPayService
+import com.picpay.desafio.android.data.network.dto.User
+import com.picpay.desafio.android.domain.UsersRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ContactsViewModel @Inject constructor(
-    private val service: PicPayService
+    private val usersRepository: UsersRepository
 ): ViewModel() {
 
     val users: MutableLiveData<List<User>?> by lazy {
@@ -20,13 +21,7 @@ class ContactsViewModel @Inject constructor(
 
     private fun getUsers() {
         viewModelScope.launch {
-            try {
-                val temp = service.getUsers()
-                users.postValue(temp)
-
-            } catch (e: Exception) {
-                users.postValue(null)
-            }
+            users.postValue(usersRepository.getUsers())
         }
     }
 

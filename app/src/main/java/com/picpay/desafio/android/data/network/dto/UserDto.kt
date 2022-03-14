@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 import org.json.JSONObject
 
+
 @Parcelize
 data class UserDto(
     @SerializedName("img") var img: String,

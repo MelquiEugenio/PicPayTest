@@ -6,6 +6,7 @@ import com.picpay.desafio.android.domain.DataSave
 import com.picpay.desafio.android.domain.UsersRepository
 import javax.inject.Inject
 
+
 class UsersRepositoryImplementation @Inject constructor(
     private val service: PicPayService,
     private val dataSave: DataSave

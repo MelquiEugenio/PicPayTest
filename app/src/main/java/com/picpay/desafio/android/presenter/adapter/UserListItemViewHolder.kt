@@ -8,6 +8,7 @@ import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_item_user.view.*
 
+
 class UserListItemViewHolder(
     itemView: View
 ) : RecyclerView.ViewHolder(itemView) {

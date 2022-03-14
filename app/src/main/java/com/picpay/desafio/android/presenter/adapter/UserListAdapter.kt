@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.picpay.desafio.android.R
 import com.picpay.desafio.android.data.network.dto.UserDto
 
+
 class UserListAdapter : RecyclerView.Adapter<UserListItemViewHolder>() {
 
     var users = emptyList<UserDto>()

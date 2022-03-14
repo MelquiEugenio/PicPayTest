@@ -3,6 +3,7 @@ package com.picpay.desafio.android.presenter.adapter
 import androidx.recyclerview.widget.DiffUtil
 import com.picpay.desafio.android.data.network.dto.UserDto
 
+
 class UserListDiffCallback(
     private val oldList: List<UserDto>,
     private val newList: List<UserDto>

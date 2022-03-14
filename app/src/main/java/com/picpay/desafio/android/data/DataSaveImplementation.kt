@@ -8,6 +8,7 @@ import com.picpay.desafio.android.utils.Constants
 import org.json.JSONObject
 import javax.inject.Inject
 
+
 class DataSaveImplementation @Inject constructor(context: Context): DataSave {
 
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences(Constants().SHARED_PREFERENCES, Context.MODE_PRIVATE)

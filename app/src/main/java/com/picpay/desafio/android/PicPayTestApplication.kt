@@ -1,11 +1,13 @@
 package com.picpay.desafio.android
 
 import android.app.Application
-import androidx.core.content.res.TypedArrayUtils.getString
+import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.picpay.desafio.android.data.DataSaveImplementation
 import com.picpay.desafio.android.data.UsersRepositoryImplementation
 import com.picpay.desafio.android.data.network.api.PicPayService
+import com.picpay.desafio.android.domain.DataSave
 import com.picpay.desafio.android.domain.UsersRepository
 import com.picpay.desafio.android.utils.Constants
 import dagger.Module
@@ -13,6 +15,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.HiltAndroidApp
 import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -92,8 +95,13 @@ class PicPayTestApplication : Application() {
         }
 
         @Provides
-        fun provideUsersRepository(service: PicPayService): UsersRepository {
-            return UsersRepositoryImplementation(service)
+        fun provideUsersRepository(service: PicPayService, dataSave: DataSave): UsersRepository {
+            return UsersRepositoryImplementation(service, dataSave)
+        }
+
+        @Provides
+        fun provideDataSave(@ApplicationContext context: Context): DataSave {
+            return DataSaveImplementation(context)
         }
     }
 }

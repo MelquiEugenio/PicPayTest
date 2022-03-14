@@ -8,5 +8,9 @@ import com.picpay.desafio.android.data.network.dto.UserDto
  */
 interface UsersRepository {
 
-    suspend fun getUsers(): List<UserDto>?
+    suspend fun getUsersFromApi(): List<UserDto>?
+
+    fun saveUsers(users: List<UserDto>)
+
+    fun getSavedUsers(): List<UserDto>?
 }

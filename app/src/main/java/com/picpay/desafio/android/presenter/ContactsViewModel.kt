@@ -20,15 +20,23 @@ class ContactsViewModel @Inject constructor(
 
     /**
      * Method to get a list of users from the PicPay API.
-     * returns: List<User>?
+     * returns: List<User> or null if an error occurred.
      */
-    private fun getUsers() {
+    private fun getUsersFromApi() {
         viewModelScope.launch {
-            users.postValue(usersRepository.getUsers())
+            users.postValue(usersRepository.getUsersFromApi())
         }
     }
 
+    fun saveUsers(users: List<UserDto>) {
+        usersRepository.saveUsers(users)
+    }
+
+    fun getSavedUsers(): List<UserDto>? {
+        return usersRepository.getSavedUsers()
+    }
+
     init {
-        getUsers()
+        getUsersFromApi()
     }
 }

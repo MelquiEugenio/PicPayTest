@@ -2,4 +2,5 @@
     <string name="app_name">PicPay</string>
     <string name="title">Contatos</string>
     <string name="error">Ocorreu um erro. Tente novamente.</string>
+    <string name="offline_data">Dados offline sendo exibidos.</string>
 </resources>

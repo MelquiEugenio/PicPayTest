@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.picpay.desafio.android.R
+import com.picpay.desafio.android.data.network.dto.UserDto
 import com.picpay.desafio.android.presenter.adapter.UserListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,14 +34,29 @@ class ContactsActivity : AppCompatActivity(R.layout.activity_main) {
 
         viewModel.users.observe(this) {
             if (it == null) {
-                val message = getString(R.string.error)
                 progressBar.visibility = View.GONE
                 recyclerView.visibility = View.GONE
 
-                Toast.makeText(this@ContactsActivity, message, Toast.LENGTH_SHORT)
+                Toast.makeText(this@ContactsActivity, getString(R.string.error), Toast.LENGTH_SHORT)
                     .show()
 
-            } else {
+                // Try to get users from data saved.
+                val users: List<UserDto>? = viewModel.getSavedUsers()
+                if (users != null && users.isNotEmpty()) {
+
+                    Toast.makeText(
+                        this@ContactsActivity,
+                        getString(R.string.offline_data),
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+
+                    recyclerView.visibility = View.VISIBLE
+                    adapter.users = users
+                }
+
+            } else if (it.isNotEmpty()) {
+                viewModel.saveUsers(it)
                 progressBar.visibility = View.GONE
                 adapter.users = it
             }

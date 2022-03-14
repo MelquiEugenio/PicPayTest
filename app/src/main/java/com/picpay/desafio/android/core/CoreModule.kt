@@ -8,7 +8,7 @@ import com.picpay.desafio.android.data.UsersRepositoryImplementation
 import com.picpay.desafio.android.data.network.api.PicPayService
 import com.picpay.desafio.android.domain.DataSave
 import com.picpay.desafio.android.domain.UsersRepository
-import com.picpay.desafio.android.utils.Constants
+import com.picpay.desafio.android.core.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

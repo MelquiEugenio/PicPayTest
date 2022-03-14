@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.picpay.desafio.android.data.network.dto.UserDto
 import com.picpay.desafio.android.domain.DataSave
-import com.picpay.desafio.android.utils.Constants
+import com.picpay.desafio.android.core.utils.Constants
 import org.json.JSONObject
 import javax.inject.Inject
 

@@ -2,7 +2,7 @@ package com.picpay.desafio.android
 
 import com.nhaarman.mockitokotlin2.mock
 import com.picpay.desafio.android.data.network.api.PicPayService
-import com.picpay.desafio.android.data.network.dto.User
+import com.picpay.desafio.android.data.network.dto.UserDto
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 
@@ -15,8 +15,8 @@ class ExampleServiceTest {
     @Test
     fun exampleTest() {
         // given
-        val call = mock<List<User>>()
-        val expectedUsers = emptyList<User>()
+        val call = mock<List<UserDto>>()
+        val expectedUsers = emptyList<UserDto>()
 
         //whenever(call.execute()).thenReturn(Response.success(expectedUsers))
 

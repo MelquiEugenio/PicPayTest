@@ -1,11 +1,13 @@
 package com.picpay.desafio.android
 
 import android.app.Application
+import androidx.core.content.res.TypedArrayUtils.getString
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.picpay.desafio.android.data.UsersRepositoryImplementation
 import com.picpay.desafio.android.data.network.api.PicPayService
 import com.picpay.desafio.android.domain.UsersRepository
+import com.picpay.desafio.android.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -78,7 +80,7 @@ class PicPayTestApplication : Application() {
         @Provides
         fun providePicPayService(client: OkHttpClient): PicPayService {
 
-            val url = "https://609a908e0f5a13001721b74e.mockapi.io/picpay/api/"
+            val url = Constants().BASE_URL
             val gson: Gson by lazy { GsonBuilder().create() }
 
             return Retrofit.Builder()

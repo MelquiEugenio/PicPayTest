@@ -14,7 +14,7 @@ class UsersRepositoryImplementation @Inject constructor(
 
     override suspend fun getUsersFromApi(): List<UserDto>? {
         return try {
-            service.getUsers()
+            service.getUsersFromApi()
         } catch (e: Exception) {
             null
         }
